@@ -2,6 +2,9 @@ import streamlit as st
 import pandas as pd
 from io import StringIO
 
+# Use the full page instead of a narrow central column
+st.set_page_config(layout="wide")
+
 @st.cache
 def convert_df(dataframe: pd.DataFrame):
     # IMPORTANT: Cache the conversion to prevent computation on every rerun
@@ -16,7 +19,7 @@ else:
     df = pd.read_csv("https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv")
 
 
-edited_df = st.experimental_data_editor(df, width=200)
+edited_df = st.experimental_data_editor(df)
 final_df = convert_df(edited_df)
 if final_df is not None:
     st.markdown("You can download edited file from download button below (CSV)")
