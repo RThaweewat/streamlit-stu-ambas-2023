@@ -26,9 +26,9 @@ if uploaded_file is not None:
     df = pd.read_csv(uploaded_file)
     st.write(df)
     edited_df = st.experimental_data_editor(df)
-    final_df = convert_df(edited_df)
 
 
+final_df = convert_df(edited_df)
 if final_df is not None:
     st.markdown("You can download edited file from download button below (CSV)")
     st.download_button(
