@@ -26,12 +26,13 @@ if uploaded_file is not None:
     df = pd.read_csv(uploaded_file)
     st.write(df)
     edited_df = st.experimental_data_editor(df)
+    final_df = convert_df(edited_df)
 
 
 st.markdown("You can download edited file from download button below (CSV)")
 st.download_button(
     label="Download edited data as CSV",
-    data=convert_df(edited_df),
+    data=final_df,
     file_name='edited_data.csv',
     mime='text/csv',
 )
