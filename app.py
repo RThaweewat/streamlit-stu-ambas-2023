@@ -18,6 +18,9 @@ if uploaded_file is not None:
 else:
     df = pd.read_csv("https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv")
 
+agree = st.checkbox('Fill NaN')
+if agree:
+    df = df.fillna(0)
 
 edited_df = st.experimental_data_editor(df)
 final_df = convert_df(edited_df)
