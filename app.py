@@ -12,6 +12,8 @@ uploaded_file = st.file_uploader("Choose your CSV file")
 if uploaded_file is not None:
     # Can be used wherever a "file-like" object is accepted:
     df = pd.read_csv(uploaded_file)
+else:
+    df = pd.read_csv("https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv")
 
 
 edited_df = st.experimental_data_editor(df)
