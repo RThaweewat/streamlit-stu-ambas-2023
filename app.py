@@ -7,7 +7,7 @@ def convert_df(dataframe: pd.DataFrame):
     # IMPORTANT: Cache the conversion to prevent computation on every rerun
     return dataframe.to_csv().encode('utf-8')
 
-
+# Todo list add features: drop dup, drop na, fill na
 uploaded_file = st.file_uploader("Choose your CSV file")
 if uploaded_file is not None:
     # Can be used wherever a "file-like" object is accepted:
