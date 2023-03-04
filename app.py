@@ -17,13 +17,13 @@ df = pd.DataFrame(
 
 edited_df = st.experimental_data_editor(df)
 favorite_command = edited_df.loc[edited_df["rating"].idxmax()]["command"]
-st.markdown(f"Your favorite command is **{favorite_command}** 🎈")
+st.markdown("You can download edited file from download button below (CSV)")
 
 df_csv = convert_df(edited_df)
 
 st.download_button(
-    label="Download data as CSV",
+    label="Download edited data as CSV",
     data=df_csv,
-    file_name='large_df.csv',
+    file_name='edited_data.csv',
     mime='text/csv',
 )
