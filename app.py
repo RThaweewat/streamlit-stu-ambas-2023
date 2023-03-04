@@ -3,9 +3,9 @@ import pandas as pd
 from io import StringIO
 
 @st.cache
-def convert_df(df):
+def convert_df(dataframe: pd.DataFrame):
     # IMPORTANT: Cache the conversion to prevent computation on every rerun
-    return df.to_csv().encode('utf-8')
+    return dataframe.to_csv().encode('utf-8')
 
 
 uploaded_file = st.file_uploader("Choose your CSV file")
@@ -24,10 +24,9 @@ if uploaded_file is not None:
 
     # Can be used wherever a "file-like" object is accepted:
     df = pd.read_csv(uploaded_file)
-    st.write(df)
-    edited_df = st.experimental_data_editor(df)
 
 
+edited_df = st.experimental_data_editor(df)
 final_df = convert_df(edited_df)
 if final_df is not None:
     st.markdown("You can download edited file from download button below (CSV)")
