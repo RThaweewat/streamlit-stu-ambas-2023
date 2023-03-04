@@ -29,10 +29,13 @@ if uploaded_file is not None:
     final_df = convert_df(edited_df)
 
 
-st.markdown("You can download edited file from download button below (CSV)")
-st.download_button(
-    label="Download edited data as CSV",
-    data=final_df,
-    file_name='edited_data.csv',
-    mime='text/csv',
-)
+if final_df is not None:
+    st.markdown("You can download edited file from download button below (CSV)")
+    st.download_button(
+        label="Download edited data as CSV",
+        data=final_df,
+        file_name='edited_data.csv',
+        mime='text/csv',
+        )
+
+
