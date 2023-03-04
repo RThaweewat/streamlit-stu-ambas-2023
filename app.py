@@ -16,7 +16,7 @@ else:
     df = pd.read_csv("https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv")
 
 
-edited_df = st.experimental_data_editor(df)
+edited_df = st.experimental_data_editor(df, width=200)
 final_df = convert_df(edited_df)
 if final_df is not None:
     st.markdown("You can download edited file from download button below (CSV)")
