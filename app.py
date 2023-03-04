@@ -18,6 +18,13 @@ if uploaded_file is not None:
 else:
     df = pd.read_csv("https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv")
 
+options = st.multiselect(
+    'Select columns to fill NaN',
+    list(df),
+    list(df))
+
+st.write('Columned selected:', options)
+
 agree = st.checkbox('Fill NaN')
 if agree:
     df = df.fillna(0)
