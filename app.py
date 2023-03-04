@@ -20,14 +20,13 @@ else:
 
 options = st.multiselect(
     'Select columns to fill NaN',
-    list(df),
     list(df))
 
 st.write('Columned selected:', options)
 
 agree = st.checkbox('Fill NaN')
 if agree:
-    df = df.fillna(0)
+    df = df[options].fillna(0)
 
 edited_df = st.experimental_data_editor(df)
 final_df = convert_df(edited_df)
